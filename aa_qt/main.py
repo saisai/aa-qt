@@ -17,7 +17,7 @@ from .config import AwQtSettings
 logger = logging.getLogger(__name__)
 
 
-@click.command("aw-qt", help="A trayicon and service manager for ActivityWatch")
+@click.command("aa-qt", help="A trayicon and service manager for ActivityWatch")
 @click.option(
     "--testing", is_flag=True, help="Run the trayicon and services in testing mode"
 )
@@ -29,14 +29,14 @@ logger = logging.getLogger(__name__)
 @click.option(
     "--no-gui",
     is_flag=True,
-    help="Start aw-qt without a graphical user interface (terminal output only)",
+    help="Start aa-qt without a graphical user interface (terminal output only)",
 )
 @click.option(
     "-i",
     "--interactive",
     "interactive_cli",
     is_flag=True,
-    help="Start aw-qt in interactive cli mode (forces --no-gui)",
+    help="Start aa-qt in interactive cli mode (forces --no-gui)",
 )
 def main(
     testing: bool,
@@ -47,14 +47,14 @@ def main(
 ) -> None:
     # Since the .app can crash when started from Finder for unknown reasons, we send a syslog message here to make debugging easier.
     if platform.system() == "Darwin":
-        subprocess.call("syslog -s 'aw-qt started'", shell=True)
+        subprocess.call("syslog -s 'aa-qt started'", shell=True)
 
-    setup_logging("aw-qt", testing=testing, verbose=verbose, log_file=True)
-    logger.info("Started aw-qt...")
+    setup_logging("aa-qt", testing=testing, verbose=verbose, log_file=True)
+    logger.info("Started aa-qt...")
 
     # Since the .app can crash when started from Finder for unknown reasons, we send a syslog message here to make debugging easier.
     if platform.system() == "Darwin":
-        subprocess.call("syslog -s 'aw-qt successfully started logging'", shell=True)
+        subprocess.call("syslog -s 'aa-qt successfully started logging'", shell=True)
 
     # Create a process group, become its leader
     # TODO: This shouldn't go here

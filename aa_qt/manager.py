@@ -12,10 +12,10 @@ import aw_core
 
 logger = logging.getLogger(__name__)
 
-# The path of aw_qt
+# The path of aa_qt
 _module_dir = os.path.dirname(os.path.realpath(__file__))
 
-# The path of the aw-qt executable (when using PyInstaller)
+# The path of the aa-qt executable (when using PyInstaller)
 _parent_dir = os.path.abspath(os.path.join(_module_dir, os.pardir))
 
 
@@ -24,12 +24,12 @@ def _log_modules(modules: List["Module"]) -> None:
         logger.debug(f" - {m.name} at {m.path}")
 
 
-ignored_filenames = ["aw-cli", "aw-client", "aw-qt", "aw-qt.desktop", "aw-qt.spec"]
+ignored_filenames = ["aw-cli", "aw-client", "aa-qt", "aa-qt.desktop", "aa-qt.spec"]
 
 
 def filter_modules(modules: Iterable["Module"]) -> Set["Module"]:
     # Remove things matching the pattern which is not a module
-    # Like aw-qt itself, or aw-cli
+    # Like aa-qt itself, or aw-cli
     return {m for m in modules if m.name not in ignored_filenames}
 
 
@@ -239,7 +239,7 @@ class Manager:
         return [m for m in self.modules if m.type == "bundled"]
 
     def discover_modules(self) -> None:
-        # These should always be bundled with aw-qt
+        # These should always be bundled with aa-qt
         modules = set(_discover_modules_bundled())
         modules |= set(_discover_modules_system())
         modules = filter_modules(modules)
@@ -254,7 +254,7 @@ class Manager:
 
     def start(self, module_name: str) -> None:
         # NOTE: Will always prefer a bundled version, if available. This will not affect the
-        #       aw-qt menu since it directly calls the module's start() method.
+        #       aa-qt menu since it directly calls the module's start() method.
         bundled = [m for m in self.modules_bundled if m.name == module_name]
         system = [m for m in self.modules_system if m.name == module_name]
         if bundled:

@@ -7,16 +7,16 @@ install:
 	bash scripts/config-autostart.sh
 
 test:
-	python -c 'import aw_qt'
+	python -c 'import aa_qt'
 
 test-integration:
 	python ./tests/integration_tests.py --no-modules
 
 lint:
-	poetry run flake8 aw_qt --ignore=E501,E302,E305,E231 --per-file-ignores="__init__.py:F401"
+	poetry run flake8 aa_qt --ignore=E501,E302,E305,E231 --per-file-ignores="__init__.py:F401"
 
 typecheck:
-	poetry run mypy aw_qt --pretty
+	poetry run mypy aa_qt --pretty
 
 precommit:
 	make typecheck
@@ -24,11 +24,11 @@ precommit:
 	make test-integration
 
 package:
-	pyinstaller --clean --noconfirm aw-qt.spec
+	pyinstaller --clean --noconfirm aa-qt.spec
 
 clean:
 	rm -rf build dist
-	rm -rf __pycache__ aw_qt/__pycache__
+	rm -rf __pycache__ aa_qt/__pycache__
 
-#aw_qt/resources.py: aw_qt/resources.qrc
-#	poetry run pyrcc5 -o aw_qt/resources.py aw_qt/resources.qrc
+#aa_qt/resources.py: aa_qt/resources.qrc
+#	poetry run pyrcc5 -o aa_qt/resources.py aa_qt/resources.qrc

@@ -4,11 +4,11 @@ from aw_core.config import load_config_toml
 
 
 default_config = """
-[aw-qt]
-autostart_modules = ["aw-server", "aw-watcher-afk", "aw-watcher-window"]
+[aa-qt]
+autostart_modules = ["aa-server", "aa-watcher-afk", "aa-watcher-window"]
 
-[aw-qt-testing]
-autostart_modules = ["aw-server", "aw-watcher-afk", "aw-watcher-window"]
+[aa-qt-testing]
+autostart_modules = ["aa-server", "aa-watcher-afk", "aa-watcher-window"]
 """.strip()
 
 
@@ -18,7 +18,7 @@ class AwQtSettings:
         An instance of loaded settings, containing a list of modules to autostart.
         Constructor takes a `testing` boolean as an argument
         """
-        config = load_config_toml("aw-qt", default_config)
-        config_section: Any = config["aw-qt" if not testing else "aw-qt-testing"]
+        config = load_config_toml("aa-qt", default_config)
+        config_section: Any = config["aa-qt" if not testing else "aa-qt-testing"]
 
         self.autostart_modules: List[str] = config_section["autostart_modules"]

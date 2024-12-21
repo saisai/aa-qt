@@ -214,17 +214,17 @@ def run(manager: Manager, testing: bool = False) -> Any:
     scriptdir = Path(__file__).parent
 
     # When run from source:
-    #   __file__ is aw_qt/trayicon.py
-    #   scriptdir is ./aw_qt
+    #   __file__ is aa_qt/trayicon.py
+    #   scriptdir is ./aa_qt
     #   logodir is ./media/logo
     QtCore.QDir.addSearchPath("icons", str(scriptdir.parent / "media/logo/"))
 
     # When run from .app:
-    #   __file__ is ./Contents/MacOS/aw-qt
+    #   __file__ is ./Contents/MacOS/aa-qt
     #   scriptdir is ./Contents/MacOS
-    #   logodir is ./Contents/Resources/aw_qt/media/logo
+    #   logodir is ./Contents/Resources/aa_qt/media/logo
     QtCore.QDir.addSearchPath(
-        "icons", str(scriptdir.parent.parent / "Resources/aw_qt/media/logo/")
+        "icons", str(scriptdir.parent.parent / "Resources/aa_qt/media/logo/")
     )
 
     # logger.info(f"search paths: {QtCore.QDir.searchPaths('icons')}")
@@ -261,6 +261,6 @@ def run(manager: Manager, testing: bool = False) -> Any:
 
     QApplication.setQuitOnLastWindowClosed(False)
 
-    logger.info("Initialized aw-qt and trayicon successfully")
+    logger.info("Initialized aa-qt and trayicon successfully")
     # Run the application, blocks until quit
     return app.exec()

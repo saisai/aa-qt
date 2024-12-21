@@ -2,7 +2,7 @@
 Name=ActivityWatch
 GenericName=Time-tracking application
 Comment=Open source time-tracking application with a focus on extensibility and privacy.
-Exec=aw-qt
+Exec=aa-qt
 Hidden=false
 StartupNotify=true
 Terminal=false

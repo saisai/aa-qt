@@ -24,10 +24,10 @@ icon = 'media/logo/logo.ico'
 block_cipher = None
 
 
-a = Analysis(['aw_qt/__main__.py'],
+a = Analysis(['aa_qt/__main__.py'],
              pathex=[] + extra_pathex,
              binaries=None,
-             datas=[('resources/aw-qt.desktop', '.'), ('media', 'media')],
+             datas=[('resources/aa-qt.desktop', '.'), ('media', 'media')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
@@ -45,7 +45,7 @@ pyz = PYZ(a.pure, a.zipped_data,
 exe = EXE(pyz,
           a.scripts,
           exclude_binaries=True,
-          name='aw-qt',
+          name='aa-qt',
           contents_directory=".",
           debug=False,
           strip=False,
@@ -58,7 +58,7 @@ coll = COLLECT(exe,
                a.datas,
                strip=False,
                upx=True,
-               name='aw-qt')
+               name='aa-qt')
 
 
 # Build a .app for macOS

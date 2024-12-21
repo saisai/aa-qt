@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "aw-qt"
+name = "aa-qt"
 version = "0.1.0"
 description = "Trayicon for ActivityWatch"
 authors = ["Erik Bjäreholt <erik@bjareho.lt>"]
 license = "MPL-2.0"
-include = ["aw_qt/resources.py"]  # resources.py is in .gitignore and generated before build
+include = ["aa_qt/resources.py"]  # resources.py is in .gitignore and generated before build
 packages = [
-    { include = "aw_qt" },
+    { include = "aa_qt" },
 ]
 
 [tool.poetry.scripts]
-aw-qt = "aw_qt:main"
+aa-qt = "aa_qt:main"
 
 [tool.poetry.dependencies]
 python = "^3.8"
