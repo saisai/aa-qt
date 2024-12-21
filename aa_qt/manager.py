@@ -24,7 +24,7 @@ def _log_modules(modules: List["Module"]) -> None:
         logger.debug(f" - {m.name} at {m.path}")
 
 
-ignored_filenames = ["aw-cli", "aw-client", "aa-qt", "aa-qt.desktop", "aa-qt.spec"]
+ignored_filenames = ["aa-cli", "aa-client", "aa-qt", "aa-qt.desktop", "aa-qt.spec"]
 
 
 def filter_modules(modules: Iterable["Module"]) -> Set["Module"]:
